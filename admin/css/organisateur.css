@@ -1,0 +1,26 @@
+#organisateur{
+  height: 410px;
+  width: 900px;
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input.deconnexion{
+  margin-bottom: 10px;
+  height: 30px;
+  width: 120px;
+}
+
+input.modifier{
+  margin-bottom: 10px;
+  height: 30px;
+  width: 160px;
+}
+
+input.ajouter-association{
+  margin-top: 10px;
+  height: 30px;
+  width: 160px;
+  margin-left: 310px;
+}

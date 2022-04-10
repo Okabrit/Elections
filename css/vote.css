@@ -1,0 +1,127 @@
+#assoc1{
+  margin-left: 390px;
+  margin-top: 50px;
+  width: 250px;
+  height: 300px;
+  border: 1px solid black;
+  float: left;
+}
+
+input.deconnexion{
+  margin-bottom: 10px;
+  height: 30px;
+  width: 120px;
+}
+
+input.modifier{
+  margin-bottom: 10px;
+  height: 30px;
+  width: 160px;
+}
+
+input#voter{
+  margin-top: 180px;
+  margin-left: 62px;
+  height: 30px;
+  width: 120px;
+  float: left;
+}
+
+input#classement{
+  position: absolute;
+  margin-top: 220px;
+  height: 30px;
+  width: 120px;
+  left: 712px;
+}
+
+#assoc2{
+  margin-left: 890px;
+  margin-top: 50px;
+  width: 250px;
+  height: 300px;
+  border: 1px solid black;
+}
+
+#nom-assoc1, #nom-assoc2{
+  height: 30px;
+  width: 250px;
+  border: 1px solid black;
+  margin-top: 270px;
+}
+
+
+
+.popup1 {
+  cursor: pointer;
+  float: left;
+  margin-left: 455px;
+  margin-top: 10px;
+  height: 30px;
+  width: 120px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.textpopup1 {
+  width: 300px;
+  height: 300px;
+  top:290px;
+  left: 140px;
+  visibility: hidden;
+  background-color: #555;
+  color: #fff;
+  border-radius: 6px;
+  padding: 2px;
+  z-index: 1;
+  position: absolute;
+}
+
+.textpopup1::after {
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.popup1 .show{
+  visibility: visible;
+  animation: afficher 1s;
+}
+
+.popup2 {
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 950px;
+  height: 30px;
+  width: 120px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.textpopup2 {
+  width: 300px;
+  height: 300px;
+  top :290px;
+  left: 1100px;
+  visibility: hidden;
+  background-color: #555;
+  color: #fff;
+  border-radius: 6px;
+  padding: 2px;
+  z-index: 1;
+  position: absolute;
+}
+
+.textpopup2::after {
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.popup2 .show{
+  visibility: visible;
+  animation: afficher 1s;
+}
+
+@keyframes afficher {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vote</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/vote.css">
+  </head>
+  <body>
+    <header>
+      <img src="images/logo_univ.png">
+      <h1>Election d'association</h1>
+      <form action="modifier-utilisateur.html" method="get">
+        <input type="submit" class="modifier" name="modifier" value="Modifier son compte">
+      </form>
+      <form action="index.html" method="get">
+        <input type="submit" class="deconnexion" name="deconnexion" value="Deconnexion">
+      </form>
+    </header>
+    <div id="assoc1">
+      <div id="nom-assoc1"></div>
+    </div>
+    
+    <input type="submit" id="voter" name="voter" value="Voter">
+
+    <form action="classement.html" method="get">
+      <input type="submit" id="classement" name="classement" value="Classement">
+    </form>
+    <div id="assoc2">
+      <div id="nom-assoc2"></div>
+    </div>
+
+    <div class="popup1" onclick="popup1()">Description
+      <span class="textpopup1" id="popup">La description</span>
+    </div>
+
+    <div class="popup2" onclick="popup2()">Description
+      <span class="textpopup2" id="popupbis">La description</span>
+    </div>
+
+
+    <script type="text/javascript" src="javascript/vote.js"></script>
+  </body>
+</html>

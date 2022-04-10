@@ -1,0 +1,64 @@
+html{
+  overflow: hidden;
+}
+@font-face {
+  font-family: "Farro-Regular";
+  src : url('../../css/fonts/Farro-Regular.ttf');
+}
+
+header{
+  background-image: url("../images/header2.jpg");
+  -background-color: blue;
+  height: 160px;
+}
+
+body > h1 {
+  text-align: center;
+  font-family: "Farro-Regular";
+
+}
+
+header > h1{
+  text-align: center;
+  margin-top: auto;
+  font-family: "Farro-Regular";
+  font-size: 50px;
+  padding-top: 40px;
+
+}
+
+header > img{
+  position: absolute;
+  height: 130px;
+  width: 130px;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+header > form{
+  position: relative;
+  left: 1300px;
+  bottom: 100px;
+}
+
+input.connexion{
+  margin-bottom: 10px;
+  height: 30px;
+  width: 120px;
+}
+
+input.inscription{
+  height: 30px;
+  width: 120px;
+}
+
+input.retour{
+  margin-top: 20px;
+  height: 30px;
+  width: 120px;
+}
+
+
+body{
+  background-image: url("../../images/background.jpg");
+}

@@ -1,0 +1,59 @@
+@font-face {
+  font-family: "Farro-Regular";
+  src : url('../../fonts/Farro-Regular.ttf');
+}
+
+
+label{
+  display: inline-block;
+  width: 200px;
+  padding-top: 10px;
+  font-family: "Farro-Regular";
+}
+
+#ajouter-assoc, #modifier-assoc, #supprimer-assoc{
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 420px;
+  width: 800px;
+  background-color: rgb(255, 165, 0);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+#ajouter-image, #modifier-image, #supprimer-image{
+  margin-top: 10px;
+  margin-left: 70px;
+  width: 270px;
+  height: 350px;
+  -border: 1px solid black;
+  float: left;
+}
+
+#image1, #image2, #image3{
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 250px;
+  height: 300px;
+  border: 1px solid black;
+}
+
+input.file-ajouter, input.file-modifier{
+  margin-top: 10px;
+  margin-left: 80px;
+  height: 30px;
+  width: 120px;
+}
+
+input#ajouter, input#modifier, input#supprimer{
+  margin-top: 20px;
+  margin-left: 190px;
+  height: 30px;
+  width: 120px;
+}
+
+#description1, #description2, #description3{
+  margin-top: 20px;
+  margin-left: 450px;
+}

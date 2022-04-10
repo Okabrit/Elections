@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "Farro-Regular";
+  src : url('fonts/Farro-Regular.ttf');
+}
+
+
+label{
+  display: inline-block;
+  width: 300px;
+  padding-top: 10px;
+  font-family: "Farro-Regular";
+}
+
+input#connection, input#inscription, input#modifier{
+  margin-top: 10px;
+  height: 30px;
+  width: 120px;
+}
+
+
+#connect{
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 150px;
+  width: 200px;
+  background-color: rgb(86,103,255);
+  border-radius: 10px;
+  padding: 20px;
+  -margin-bottom: 10px;
+}
+
+#inscript, #modif{
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 300px;
+  width: 800px;
+  background-color: rgb(86,103,255);
+  border-radius: 10px;
+  padding: 20px;
+}
