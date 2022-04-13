@@ -98,11 +98,12 @@
 
           }
 
-          if ($error_nom1 == '' && $error_prenom1 == '' && $error_email1 == '' &&
-        $error_password2 == '' && $error_password3 == '' && $error_recaptcha == '') {
+          if ($error_nom1 == '' && $error_prenom1 == '' && $error_identifier2 == ''
+            && $error_email1 == '' && $error_condition1 == '' && $error_password2 == ''
+             && $error_password3 == '' && $error_recaptcha == '') {
 
             $data = array('success' => true);
-            
+
           } else {
 
             $data = array(
