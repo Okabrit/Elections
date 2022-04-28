@@ -21,8 +21,8 @@
         if (empty($_POST["nom1"])) {
             $error_nom1 = 'Veuillez entrer le nom';
         }else{
-          if (strlen($_POST['nom1']) < 4) {
-            $error_nom1 = 'au moins 4 lettres';
+          if (strlen($_POST['nom1']) < 2) {
+            $error_nom1 = 'au moins 2 lettres';
           }else {
             $nom1 = $_POST["nom1"];
           }
