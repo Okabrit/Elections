@@ -1,15 +1,15 @@
 <?php
   // URL of the host
-  $dbhost = "localhost";
+  $dbhost = "mysql-gp6-web.alwaysdata.net";
 
   // Name of the database
-  $dbname = "vote";
+  $dbname = "gp6-web_elections";
 
   // User name
-  $dbuser = "root";
+  $dbuser = "gp6-web";
 
   // Password (not used here)
-  $dbpass = "password";
+  $dbpass = "49VXe3gUSW3PyES";
 
   try {
     $connection = new PDO('mysql:host='.$dbhost.';dbname='.$dbname, $dbuser);
