@@ -70,12 +70,16 @@
 
           <div class="g-recaptcha" data-sitekey="6LfJnGkfAAAAAFiCD7fB6VxetioxBTpATsuj0PFE"></div>
           <span id="error_recaptcha" class ="warning"></span>
-          <span id="error_bdd" class="warning"></span>
+
 
 
           <div>
   					<input type="submit" name="submit" id="inscription" value="Inscription"/>
   				</div>
+
+          <div >
+            <span id="error_bdd" class="warning"></span>
+          </div>
 
         </div>
 
@@ -88,7 +92,7 @@
 <script>
   $(document).ready(function() {
     $('#registerForm').on('submit', function (event) {
-      event.preventDefault()
+
       $.ajax({
         url:"validateCaptcha.php",
         method:"POST",
@@ -102,7 +106,7 @@
 
           if (data.success) {
 
-          //  $('#registerForm')[0].reset();
+          /*  $('#registerForm')[0].reset();
             $('#error_nom1').text('');
             $('#error_prenom1').text('');
             $('#error_identifier2').text('');
@@ -112,26 +116,30 @@
             $('#error_condition1').text('');
             $('#error_recaptcha').text('');
             $('#error_bdd').text('');
-            grecaptcha.reset();
+            grecaptcha.reset();*/
+              window.location.href = "vote.html";
+            }else{
 
-            window.location.href = "vote.html";
-          }else{
+                $('#error_nom1').text(data.error_nom1);
+                $('#error_prenom1').text(data.error_prenom1);
+                $('#error_identifier2').text(data.error_identifier2);
+                $('#error_email1').text(data.error_email1);
+                $('#error_password2').text(data.error_password2);
+                $('#error_password3').text(data.error_password3);
+                $('#error_condition1').text(data.error_condition1);
+                $('#error_recaptcha').text(data.error_recaptcha);
+                $('#error_bdd').text(data.error_bdd);
 
-            $('#error_nom1').text(data.error_nom1);
-            $('#error_prenom1').text(data.error_prenom1);
-            $('#error_identifier2').text(data.error_identifier2);
-            $('#error_email1').text(data.error_email1);
-            $('#error_password2').text(data.error_password2);
-            $('#error_password3').text(data.error_password3);
-            $('#error_condition1').text(data.error_condition1);
-            $('#error_recaptcha').text(data.error_recaptcha);
-            $('#error_bdd').text(data.error_bdd);
-            grecaptcha.reset();
+                grecaptcha.reset();
+              }
           }
-        }
 
 
-      })
-    })
-  })
+
+
+
+      });
+event.preventDefault();
+    });
+  });
 </script>
