@@ -111,6 +111,7 @@
             $('#error_password3').text('');
             $('#error_condition1').text('');
             $('#error_recaptcha').text('');
+            $('#error_bdd').text('');
             grecaptcha.reset();
 
             window.location.href = "vote.html";

@@ -8,7 +8,7 @@
   // User name
   $dbuser = "gp6-web";
 
-  // Password (not used here)
+  // Password
   $dbpass = "49VXe3gUSW3PyES";
 
   try {

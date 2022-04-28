@@ -1,6 +1,8 @@
 
       <?php
 
+      require_once("bdd_config.php");
+
       if (isset($_POST["nom1"])) {
         $nom1 = '';
         $prenom1 = '';
@@ -99,12 +101,41 @@
 
           }
 
+          function checkUserName($connection, $username) {
+            $query = "SELECT COUNT(*) AS count FROM users WHERE id=:username";
+            $statement = $connection->prepare($query);
+            $statement->bindValue(":username", $username, PDO::PARAM_STR);
+            $statement->execute();
+
+            $row = $statement->fetch(PDO::FETCH_ASSOC);
+            return $row["count"] == "0";
+          }
+
+          function addUser($connection, $username, $email, $cryptedPw, $nom, $prenom) {
+            $query = "INSERT INTO users (id, nom, prenom, mail, mdp) VALUES (:username, :nom, :prenom, :email, :cryptedPw)";
+
+            $statement = $connection->prepare($query);
+            $statement->bindValue(":username", $username, PDO::PARAM_STR);
+            $statement->bindValue(":email", $email, PDO::PARAM_STR);
+            $statement->bindValue(":cryptedPw", $cryptedPw, PDO::PARAM_STR);
+            $statement->bindValue(":nom", $nom, PDO::PARAM_STR);
+            $statement->bindValue(":prenom", $prenom, PDO::PARAM_STR);
+
+            $Ok = $statement->execute();
+          }
+
+          if(!checkUserName($connection, $identifier2)) {
+            $error_bdd = 'Cet identifiant existe déjà !';
+          }
+
           if ($error_nom1 == '' && $error_prenom1 == '' && $error_identifier2 == ''
             && $error_email1 == '' && $error_condition1 == '' && $error_password2 == ''
              && $error_password3 == '' && $error_recaptcha == '' && $error_bdd == '') {
 
             $data = array('success' => true);
 
+            $cryptedPw = hash('sha384', $password2);
+            addUser($connection, $identifier2, $email1, $cryptedPw, $nom1, $prenom1);
           } else {
 
             $data = array(
