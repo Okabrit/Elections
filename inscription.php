@@ -70,6 +70,7 @@
 
           <div class="g-recaptcha" data-sitekey="6LfJnGkfAAAAAFiCD7fB6VxetioxBTpATsuj0PFE"></div>
           <span id="error_recaptcha" class ="warning"></span>
+          <span id="error_bdd" class="warning"></span>
 
 
           <div>
@@ -111,7 +112,7 @@
             $('#error_condition1').text('');
             $('#error_recaptcha').text('');
             grecaptcha.reset();
-            
+
             window.location.href = "vote.html";
           }else{
 
@@ -123,6 +124,7 @@
             $('#error_password3').text(data.error_password3);
             $('#error_condition1').text(data.error_condition1);
             $('#error_recaptcha').text(data.error_recaptcha);
+            $('#error_bdd').text(data.error_bdd);
             grecaptcha.reset();
           }
         }

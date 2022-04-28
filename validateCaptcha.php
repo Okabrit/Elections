@@ -17,6 +17,7 @@
         $error_password3= '';
         $error_condition1= '';
         $error_recaptcha= '';
+        $error_bdd= '';
 
         if (empty($_POST["nom1"])) {
             $error_nom1 = 'Veuillez entrer le nom';
@@ -100,7 +101,7 @@
 
           if ($error_nom1 == '' && $error_prenom1 == '' && $error_identifier2 == ''
             && $error_email1 == '' && $error_condition1 == '' && $error_password2 == ''
-             && $error_password3 == '' && $error_recaptcha == '') {
+             && $error_password3 == '' && $error_recaptcha == '' && $error_bdd == '') {
 
             $data = array('success' => true);
 
@@ -114,7 +115,8 @@
               'error_email1' => $error_email1,
               'error_password2' => $error_password2,
               'error_password3' => $error_password3,
-              'error_recaptcha' => $error_recaptcha
+              'error_recaptcha' => $error_recaptcha,
+              'error_bdd' => $error_bdd;
             );
           }
           echo json_encode($data);
