@@ -147,7 +147,7 @@
               'error_password2' => $error_password2,
               'error_password3' => $error_password3,
               'error_recaptcha' => $error_recaptcha,
-              'error_bdd' => $error_bdd;
+              'error_bdd' => $error_bdd
             );
           }
           echo json_encode($data);
