@@ -12,7 +12,7 @@
   $dbpass = "49VXe3gUSW3PyES";
 
   try {
-    $connection = new PDO('mysql:host='.$dbhost.';dbname='.$dbname, $dbuser);
+    $connection = new PDO('mysql:host='.$dbhost.';dbname='.$dbname, $dbuser, $dbpass);
   } catch(PDOException $e) {
     echo $e->getMessage();
   }
