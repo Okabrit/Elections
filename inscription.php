@@ -111,8 +111,11 @@
             $('#error_condition1').text('');
             $('#error_recaptcha').text('');
             grecaptcha.reset();
-            window.location.href = "vote.html";
 
+            require_once("bdd_config.php");
+            
+            
+            window.location.href = "vote.html";
           }else{
 
             $('#error_nom1').text(data.error_nom1);
