@@ -17,7 +17,6 @@
         $error_email1= '';
         $error_password2= '';
         $error_password3= '';
-        $error_condition1= '';
         $error_recaptcha= '';
         $error_bdd= '';
 
@@ -84,12 +83,6 @@
              }
           }
 
-          if ($_POST['condition1'] == '1') {
-            $error_condition1 = 'Veuillez valider le box';
-          }else {
-            $condition1 = $_POST['condition1'];
-          }
-
           if (empty($_POST["g-recaptcha-response"])) {
               $error_recaptcha = 'Veuillez faire le reCAPTACHA';
           }else{
@@ -110,9 +103,7 @@
 
 
 
-          if ($error_nom1 == '' && $error_prenom1 == '' && $error_identifier2 == ''
-            && $error_email1 == '' && $error_condition1 == '' && $error_password2 == ''
-             && $error_password3 == '' && $error_recaptcha == '' && $error_bdd == '') {
+          if ($error_nom1 == '' && $error_prenom1 == '' && $error_identifier2 == '' && $error_email1 == '' && $error_password2 == '' && $error_password3 == '' && $error_recaptcha == '' && $error_bdd == '') {
 
                $data = array('success' => true);
 

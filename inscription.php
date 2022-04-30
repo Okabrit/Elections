@@ -93,6 +93,8 @@
   $(document).ready(function() {
     $('#registerForm').on('submit', function (event) {
 
+      event.preventDefault();
+
       $.ajax({
         url:"validateCaptcha.php",
         method:"POST",
@@ -106,7 +108,7 @@
 
           if (data.success) {
 
-          /*  $('#registerForm')[0].reset();
+            $('#registerForm')[0].reset();
             $('#error_nom1').text('');
             $('#error_prenom1').text('');
             $('#error_identifier2').text('');
@@ -116,8 +118,9 @@
             $('#error_condition1').text('');
             $('#error_recaptcha').text('');
             $('#error_bdd').text('');
-            grecaptcha.reset();*/
-              window.location.href = "vote.html";
+            grecaptcha.reset();
+            window.location.href = "vote.html";
+
             }else{
 
                 $('#error_nom1').text(data.error_nom1);
@@ -139,7 +142,7 @@
 
 
       });
-event.preventDefault();
+
     });
   });
 </script>
