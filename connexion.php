@@ -45,6 +45,9 @@
 
     session_start();
 
+    $username="";
+    $password="";
+
     if(isset($_POST['identifier1']) && isset($_POST['password1'])){
       $username=$_POST['identifier1'];
       $password=$_POST['password1'];
