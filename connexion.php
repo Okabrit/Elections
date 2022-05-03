@@ -39,4 +39,30 @@
     </div>
 
   </body>
+
+  <?php
+    require_once("bdd_config.php");
+
+    session_start();
+
+    if(isset($_POST['identifier1']) && isset($_POST['password1'])){
+      $username=$_POST['identifier1'];
+      $password=$_POST['password1'];
+    }
+
+    $query="SELECT mdp FROM users WHERE id=:username";
+    $statement=$connection->prepare($query);
+    $statement->bindValue(":username", $username, PDO::PARAM_STR);
+    $statement->execute();
+    $row=$statement->fetch(PDO::FETCH_ASSOC);
+
+    if($row && $row['mdp']==hash("sha384", $password)){
+      $_SESSION["id"]=$username;
+    }else{
+      if($row && $row['mdp']!=hash("sha384", $password)){
+        echo "<p>Mot de passe invalide</p>";
+      }
+    }
+
+  ?>
 </html>
