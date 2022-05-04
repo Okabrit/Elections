@@ -94,9 +94,9 @@
 
           }
 
-          if(!checkUserName($connection, $identifier2)) {
+          if(!checkUserName($connection, $identifier2) && error_identifier2 == '') {
             $error_bdd = 'Cet identifiant existe déjà !';
-          }else{
+          }else if(!checkUserName($connection, $identifier2)) {
             $cryptedPw = hash('sha384', $password2);
             addUser($connection, $identifier2, $email1, $cryptedPw, $nom1, $prenom1);
           }
