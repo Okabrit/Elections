@@ -94,19 +94,19 @@
 
           }
 
-          if(!checkUserName($connection, $identifier2) && $error_identifier2 == '') {
+          if(!checkUserName($connection, $identifier2)) {
             $error_bdd = 'Cet identifiant existe déjà !';
-          }else if(checkUserName($connection, $identifier2)) {
-            $cryptedPw = hash('sha384', $password2);
-            addUser($connection, $identifier2, $email1, $cryptedPw, $nom1, $prenom1);
           }
 
 
 
           if ($error_nom1 == '' && $error_prenom1 == '' && $error_identifier2 == '' && $error_email1 == '' && $error_password2 == '' && $error_password3 == '' && $error_recaptcha == '' && $error_bdd == '') {
 
-               $data = array('success' => true);
+              $cryptedPw = password_hash($password2, PASSWORD_DEFAULT);
+              addUser($connection, $identifier2, $email1, $cryptedPw, $nom1, $prenom1);
 
+              $data = array('success' => true);
+              
           } else {
 
             $data = array(

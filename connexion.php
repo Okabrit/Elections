@@ -5,6 +5,9 @@
     <title>Election : Connexion</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/connexion-inscription.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.1.js"></script>
   </head>
   <body>
     <header>
@@ -16,7 +19,7 @@
     </header>
     <h1>Connexion</h1>
     <div id="connect">
-      <form action="vote.html" method="post">
+      <form action="vote.html" method="post" id="connectionForm">
         <div>
 
           <div>
@@ -32,40 +35,47 @@
         </div>
 
         <div>
-					<input type="submit" id="connection" value="Connexion"/>
+					<input type="submit" name="submit" id="connection" value="Connexion"/>
+          <span id="error_connexion" class ="warning">waaaaaaaaar</span>
 				</div>
+        
       </form>
 
     </div>
-
   </body>
 
-  <?php
-    require_once("bdd_config.php");
-
-    session_start();
-
-    $username="";
-    $password="";
-
-    if(isset($_POST['identifier1']) && isset($_POST['password1'])){
-      $username=$_POST['identifier1'];
-      $password=$_POST['password1'];
-    }
-
-    $query="SELECT mdp FROM users WHERE id=:username";
-    $statement=$connection->prepare($query);
-    $statement->bindValue(":username", $username, PDO::PARAM_STR);
-    $statement->execute();
-    $row=$statement->fetch(PDO::FETCH_ASSOC);
-
-    if($row && $row['mdp']==hash("sha384", $password)){
-      $_SESSION["id"]=$username;
-    }else{
-      if($row && $row['mdp']!=hash("sha384", $password)){
-        echo "<p>Mot de passe invalide</p>";
-      }
-    }
-
-  ?>
 </html>
+
+<script>
+  $(document).ready(function() {
+    $('#connectionForm').on('submit', function (event) {
+
+      event.preventDefault();
+
+      $.ajax({
+        url:"validateConnection.php",
+        method:"POST",
+        data:$(this).serialize(),
+        dataType:"json",
+        beforeSend:function () {
+          $('#connection').attr('disabled', 'disabled');
+        },
+        success:function (data) {
+          $('#connection').attr('disabled', false);
+
+          if (data.success) {
+
+            $('#connectionForm')[0].reset();
+            $('#error_connexion').text('');
+            window.location.href = "vote.html";
+
+            }else{
+                $('#error_connexion').text(data.error_connexion);
+            }
+          }
+
+      });
+
+    });
+  });
+</script>
