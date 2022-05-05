@@ -97,17 +97,15 @@
 
           if (data.success) {
 
-            $('#connectionForm')[0].reset();
-            $('#error_connexion').text('');
+            $('#modificationForm')[0].reset();
+            $('#error_modification').text('');
             window.location.href = "vote.html";
 
             }else{
-                $('#error_connexion').text(data.error_connexion);
+                $('#error_modification').text(data.error_connexion);
             }
           }
-
       });
-
     });
   });
 </script>

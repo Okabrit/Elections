@@ -1,6 +1,7 @@
 <?php
-  session_start();
+
   require_once("bdd_config.php");
+  session_start();
 
   $nom='';
   $prenom='';
@@ -30,26 +31,36 @@
   }
 
   if(empty($_POST["password4"])){
-    $error_modification.="Veuillez entrer votre mot de passe";
+    $error_modification ="Veuillez entrer votre mot de passe";
   }else{
     $password=$_POST["password4"];
   }
 
   if(empty($_POST["password5"])){
-    $error_modification.="Veuillez entrer votre nouveau mot de passe";
+    $error_modification ="Veuillez entrer votre nouveau mot de passe";
   }else{
     $newPassword=$_POST["password5"];
   }
 
   if(empty($_POST["password6"])){
-    $error_modification.="Veuillez confirmer votre nouveau mot de passe";
+    $error_modification ="Veuillez confirmer votre nouveau mot de passe";
   }
 
-  if(checkPassword($connection,$password,$id)["mdp"] == password_hash($password, PASSWORD_DEFAULT)){
+if(checkPassword($connection,$password,$id)["mdp"] == password_hash($password, PASSWORD_DEFAULT)){
     modifPassword($connection, $newPassword, $id);
   }else{
-    $error_modification.='Mot de passe invalide';
+    $error_modification ='Mot de passe invalide';
   }
+
+
+  if ($error_modification == '') {
+    $data = array('success' => true);
+  }else {
+    $data = array('error_modification' => $error_modification);
+  }
+
+  echo json_encode($data);
+
 
   function getMail($connection, $id) {
     $query = "SELECT mail FROM users WHERE id=:id";
@@ -59,7 +70,7 @@
 
     $row = $statement->fetch(PDO::FETCH_ASSOC);
     return $row["mail"];
-  }  
+  }
 
   function getName($connection, $id) {
     $query = "SELECT prenom FROM users WHERE id=:id";
@@ -69,7 +80,7 @@
 
     $row = $statement->fetch(PDO::FETCH_ASSOC);
     return $row["prenom"];
-  }  
+  }
 
   function getLastName($connection, $id) {
     $query = "SELECT nom FROM users WHERE id=:id";
