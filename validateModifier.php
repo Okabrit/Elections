@@ -51,7 +51,7 @@
 
   if(checkUserName($connection, $id)){
     $error_modification.='Cet identifiant n\'existe pas';
-  }else if(checkPassword($connection,$password,$id)["mdp"]==hash('sha384', $password)){
+  }else if( checkPassword($connection,$password,$id)["mdp"] == password_hash($password1, PASSWORD_DEFAULT); ){
     modifPassword($connection, $newPassword, $id);
   }else{
     $error_modification.='Mot de passe invalide';
