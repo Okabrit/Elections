@@ -36,7 +36,7 @@
 
         <div>
 					<input type="submit" name="submit" id="connection" value="Connexion"/>
-          <span id="error_connexion" class ="warning">waaaaaaaaar</span>
+          <span id="error_connexion" class ="warning"></span>
 				</div>
         
       </form>
