@@ -1,6 +1,7 @@
 
       <?php
 
+      session_start();
       require_once("bdd_config.php");
 
       if (isset($_POST["nom1"])) {
@@ -104,6 +105,8 @@
 
               $cryptedPw = password_hash($password2, PASSWORD_DEFAULT);
               addUser($connection, $identifier2, $email1, $cryptedPw, $nom1, $prenom1);
+
+              $_SESSION['id'] = $identifier2;
 
               $data = array('success' => true);
               
