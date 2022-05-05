@@ -45,7 +45,7 @@
     $error_modification.="Veuillez confirmer votre nouveau mot de passe";
   }
 
-  if(checkPassword($connection,$password,$id)["mdp"] == password_hash($password1, PASSWORD_DEFAULT)){
+  if(checkPassword($connection,$password,$id)["mdp"] == password_hash($password, PASSWORD_DEFAULT)){
     modifPassword($connection, $newPassword, $id);
   }else{
     $error_modification.='Mot de passe invalide';
