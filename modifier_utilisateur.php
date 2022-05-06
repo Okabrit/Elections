@@ -22,35 +22,40 @@
 
     <h1>Modifier son compte</h1>
     <div id="modif">
+
       <form action="vote.html" method="post" id="modificationForm">
         <div>
 
           <div>
+            <span>Vous pouvez grader les infos que vous souhaitez garder en laissant leur place vide</span>
+          </div>
+
+          <div>
+            <label for="identifier3">Identifiant</label>
+            <span id="idtext" class ="warning"></span>
+          </div>
+
+          <div>
             <label for="nom2">Nom</label>
             <input type="text" id="nom2" name="nom2">
+            <span id="error_nom" class ="warning"></span>
+
           </div>
 
           <div>
             <label for="prenom2">Prénom</label>
             <input type="text" id="prenom2" name="prenom2">
-          </div>
+            <span id="error_prenom" class ="warning"></span>
 
-          <div>
-            <label for="identifier3">Identifiant</label>
-
-            <span id="idtext" class ="warning"></span>
           </div>
 
           <div>
             <label for="email2">Email</label>
             <input type="text" id="email2" name="email2">
+            <span id="error_email" class ="warning"></span>
+
           </div>
 
-          <div>
-						<label for="password4">Mot de passe</label>
-						<input type="password" id="password4" name="password4"/>
-            <span id="error_password4" class ="warning"></span>
-					</div>
 
           <div>
 						<label for="password5">Nouveau mot de passe</label>
@@ -62,6 +67,13 @@
 						<label for="password6">Confirmer nouveau mot de passe</label>
 						<input type="password" id="password6" name="password6"/>
             <span id="error_password6" class ="warning"></span>
+					</div>
+
+          <div>
+
+						<label for="password4">Mot de passe</label>
+						<input type="password" id="password4" name="password4"/>
+            <span id="error_password4" class ="warning"></span>
 					</div>
 
           <div>
@@ -111,6 +123,9 @@
 
             }else{
               $('#idtext').text(data.id);
+              $('#error_nom').text(data.error_nom);
+              $('#error_prenom').text(data.error_prenom);
+              $('#error_email').text(data.error_email);
               $('#error_password4').text(data.error_password4);
               $('#error_password5').text(data.error_password5);
               $('#error_password6').text(data.error_password6);
