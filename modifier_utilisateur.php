@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -36,7 +37,8 @@
 
           <div>
             <label for="identifier3">Identifiant</label>
-            <input type="text" id="identifier2" name="identifier2">
+
+            <span id="idtext" class ="warning"></span>
           </div>
 
           <div>
@@ -47,16 +49,19 @@
           <div>
 						<label for="password4">Mot de passe</label>
 						<input type="password" id="password4" name="password4"/>
+            <span id="error_password4" class ="warning"></span>
 					</div>
 
           <div>
 						<label for="password5">Nouveau mot de passe</label>
 						<input type="password" id="password5" name="password5"/>
+            <span id="error_password5" class ="warning"></span>
 					</div>
 
           <div>
 						<label for="password6">Confirmer nouveau mot de passe</label>
 						<input type="password" id="password6" name="password6"/>
+            <span id="error_password6" class ="warning"></span>
 					</div>
 
           <div>
@@ -98,11 +103,18 @@
           if (data.success) {
 
             $('#modificationForm')[0].reset();
+            $('#error_password4').text('');
+            $('#error_password5').text('');
+            $('#error_password6').text('');
             $('#error_modification').text('');
             window.location.href = "vote.html";
 
             }else{
-                $('#error_modification').text(data.error_connexion);
+              $('#idtext').text(data.id);
+              $('#error_password4').text(data.error_password4);
+              $('#error_password5').text(data.error_password5);
+              $('#error_password6').text(data.error_password6);
+              $('#error_modification').text(data.error_modification);
             }
           }
       });

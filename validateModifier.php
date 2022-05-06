@@ -5,10 +5,15 @@
 
   $nom='';
   $prenom='';
-  $id=$_SESSION['id'];
+  $id = $_SESSION['id'];
   $email='';
-  $password='';
-  $newPassword='';
+  $password4='';
+  $password5 ='';
+  $password6='';
+
+  $error_password4='';
+  $error_password5='';
+  $error_password6='';
   $error_modification='';
 
 
@@ -31,34 +36,68 @@
   }
 
   if(empty($_POST["password4"])){
-    $error_modification ="Veuillez entrer votre mot de passe";
+    $error_password4 ="Veuillez entrer votre mot de passe";
   }else{
-    $password=$_POST["password4"];
+    $username=$_SESSION['id'];
+    $password=$_POST['password4'];
+
+    $query = "SELECT mdp FROM users WHERE id=:username";
+    $statement = $connection->prepare($query);
+    $statement->bindValue(":username", $username, PDO::PARAM_STR);
+    $statement->execute();
+    $row = $statement->fetch(PDO::FETCH_ASSOC);
+
+    if (password_verify($_POST["password4"], $row['mdp'])) {
+          $password4=$_POST["password4"];
+       } else {
+          $error_password4 = "Mot de passe invalide!";
+       }
+
   }
 
-  if(empty($_POST["password5"])){
-    $error_modification ="Veuillez entrer votre nouveau mot de passe";
+  if (empty($_POST["password5"])) {
+      $error_password5 = 'Veuillez entrer un mot de passe';
   }else{
-    $newPassword=$_POST["password5"];
+    if (strlen($_POST['password5']) < 8) {
+      $error_password5 = 'au moins 8 chiffres';
+    }else {
+      $password5 = $_POST["password5"];
+    }
   }
 
-  if(empty($_POST["password6"])){
-    $error_modification ="Veuillez confirmer votre nouveau mot de passe";
-  }
-
-if(checkPassword($connection,$password,$id)["mdp"] == password_hash($password, PASSWORD_DEFAULT)){
-    modifPassword($connection, $newPassword, $id);
+  if (empty($_POST["password6"])) {
+      $error_password6 = 'Veuillez entrer un mot de passe';
   }else{
-    $error_modification ='Mot de passe invalide';
+    if ($_POST['password6'] != $password5) {
+      $error_password6 ='les 2 mots de passe ne sont pas identiques!';
+    }else{
+      $password6 = $_POST["password6"];
+     }
   }
 
+    if (!empty($password4) && !empty($password5) && !empty($password6)) {
+      modifPassword($connection, $password6, $id);
+    }else{
+      $error_modification ='Error Modification';
+    }
 
-  if ($error_modification == '') {
+
+  if ($error_modification == '' && $error_password4 == '' && $error_password5 == '' && $error_password6 == '' ) {
+
+
     $data = array('success' => true);
-  }else {
-    $data = array('error_modification' => $error_modification);
-  }
 
+  }else {
+
+
+    $data = array(
+      'id' => $id,
+      'error_password4' => $error_password4,
+      'error_password5' => $error_password5,
+      'error_password6' => $error_password6,
+      'error_modification' => $error_modification
+    );
+  }
   echo json_encode($data);
 
 
@@ -109,4 +148,5 @@ if(checkPassword($connection,$password,$id)["mdp"] == password_hash($password, P
     $statement->bindValue(":password", $cryptedPassword, PDO::PARAM_STR);
     $statement->execute();
   }
+
 ?>
