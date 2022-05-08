@@ -32,13 +32,18 @@
 						<input type="password" id="password1" name="password1"/>
 					</div>
 
+          <div>
+            <label for="code-secret">Code secret</label>
+            <input type="text" id="code-secret" name="code-secret">
+          </div>
+
         </div>
 
         <div>
 					<input type="submit" name="submit" id="connection" value="Connexion"/>
           <span id="error_connexion" class ="warning"></span>
 				</div>
-        
+
       </form>
 
     </div>
