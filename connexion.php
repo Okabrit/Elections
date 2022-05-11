@@ -68,7 +68,7 @@
         success:function (data) {
           $('#connection').attr('disabled', false);
 
-          if (data.success) {
+          if (data.successUSER) {
 
             $('#connectionForm')[0].reset();
             $('#error_connexion').text('');
@@ -77,6 +77,20 @@
             }else{
                 $('#error_connexion').text(data.error_connexion);
             }
+
+            if (data.successADMIN) {
+
+              $('#connectionForm')[0].reset();
+              $('#error_connexion').text('');
+              $('#error_code').text('');
+              window.location.href = "admin/ajouter-association.html";
+
+              }
+
+              else{
+                  $('#error_code').text(data.error_code);
+                  $('#error_connexion').text(data.error_connexion);
+              }
           }
 
       });
