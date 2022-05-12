@@ -39,6 +39,7 @@
           <div>
             <label for="code-secret">Code secret</label>
             <input type="text" id="code-secret" name="code-secret">
+            <span id="error_code" class ="warning"></span>
           </div>
 
         </div>

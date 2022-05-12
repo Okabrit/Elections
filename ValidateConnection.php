@@ -59,7 +59,7 @@
 
       // avec code
 
-      else if(isset($_POST["identifier1"]) && isset($_POST["code-secret"]) == $code_secret) {
+      else if(isset($_POST["identifier1"]) && isset($_POST["code-secret"])) {
 
         $identifier1 = '';
         $password1 = '';
