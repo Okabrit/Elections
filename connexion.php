@@ -22,6 +22,10 @@
       <form action="vote.html" method="post" id="connectionForm">
         <div>
 
+          <div >
+            <center>Pour vous connecter en tant qu'administrateur, veuillez entrer le code</center>
+          </div>
+
           <div>
             <label for="identifier1">Identifiant</label>
             <input type="text" id="identifier1" name="identifier1">
@@ -83,7 +87,7 @@
               $('#connectionForm')[0].reset();
               $('#error_connexion').text('');
               $('#error_code').text('');
-              window.location.href = "admin/ajouter-association.html";
+              window.location.href = "admin/organisateur.html";
 
               }
 
