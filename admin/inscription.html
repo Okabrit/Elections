@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Inscription organisateur</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/connexion-inscription.css">
+  </head>
+  <body>
+    <header>
+      <img src="../images/logo_univ.png">
+      <h1>Election d'association</h1>
+      <form action="/Elections/index.html" method="get">
+        <input type="submit" class="retour" name="retour" value="Retour">
+      </form>
+    </header>
+    <h1>Inscription</h1>
+    <div id="inscript">
+      <form action="organisateur.html" method="post">
+        <div>
+
+          <div>
+            <label for="nom-admin1">Nom</label>
+            <input type="text" id="nom-admin1" name="nom-admin1">
+          </div>
+
+          <div>
+            <label for="prenom-admin1">Prénom</label>
+            <input type="text" id="prenom-admin1" name="prenom-admin1">
+          </div>
+
+          <div>
+            <label for="identifier-admin2">Identifiant</label>
+            <input type="text" id="identifier-admin2" name="identifier-admin2">
+          </div>
+
+          <div>
+            <label for="email-admin">Email</label>
+            <input type="text" id="email-admin" name="email-admin">
+          </div>
+
+          <div>
+						<label for="password-admin2">Mot de passe</label>
+						<input type="password" id="password-admin2" name="password-admin2"/>
+					</div>
+
+          <div>
+						<label for="password-admin3">Confirmation mot de passe</label>
+						<input type="password" id="password-admin3" name="password-admin3"/>
+					</div>
+
+          <div>
+					<input type="checkbox" id="condition-admin1" name="condition-admin1"/>
+          <label for="condition1">Accepter les conditions d'utilisation.</label>
+				</div>
+
+        </div>
+
+        <div>
+					<input type="submit" id="inscription" value="Inscription"/>
+				</div>
+      </form>
+
+    </div>
+  </body>
+</html>

@@ -8,9 +8,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.1.js"></script>
-
   </head>
+
   <body>
+
     <header>
       <img src="../images/logo_univ.png">
       <h1>Election d'association</h1>
@@ -37,21 +38,18 @@
                       <label for="nom2">Nom</label>
                       <input type="text" id="nom2" name="nom2">
                       <span id="error_nom" class ="warning"></span>
-
                     </div>
 
                     <div>
                       <label for="prenom2">Prénom</label>
                       <input type="text" id="prenom2" name="prenom2">
                       <span id="error_prenom" class ="warning"></span>
-
                     </div>
 
                     <div>
                       <label for="email2">Email</label>
                       <input type="text" id="email2" name="email2">
                       <span id="error_email" class ="warning"></span>
-
                     </div>
 
 
@@ -92,45 +90,44 @@
             </body>
           </html>
 
+          <script>
+            $(document).ready(function() {
+              $('#modificationForm').on('submit', function (event) {
 
-<script>
-  $(document).ready(function() {
-    $('#modificationForm').on('submit', function (event) {
+                event.preventDefault();
 
-      event.preventDefault();
+                $.ajax({
+                  url:"validateModifier.php",
+                  method:"POST",
+                  data:$(this).serialize(),
+                  dataType:"json",
+                  beforeSend:function () {
+                    $('#modifier').attr('disabled', 'disabled');
+                  },
+                  success:function (data) {
+                    $('#modifier').attr('disabled', false);
 
-      $.ajax({
-        url:"validateModifier.php",
-        method:"POST",
-        data:$(this).serialize(),
-        dataType:"json",
-        beforeSend:function () {
-          $('#modifier').attr('disabled', 'disabled');
-        },
-        success:function (data) {
-          $('#modifier').attr('disabled', false);
+                    if (data.success) {
 
-          if (data.success) {
+                      $('#modificationForm')[0].reset();
+                      $('#error_password4').text('');
+                      $('#error_password5').text('');
+                      $('#error_password6').text('');
+                      $('#error_modification').text('');
+                      window.location.href = "ajouter-association.html";
 
-            $('#modificationForm')[0].reset();
-            $('#error_password4').text('');
-            $('#error_password5').text('');
-            $('#error_password6').text('');
-            $('#error_modification').text('');
-            window.location.href = "vote.html";
-
-            }else{
-              $('#idtext').text(data.id);
-              $('#error_nom').text(data.error_nom);
-              $('#error_prenom').text(data.error_prenom);
-              $('#error_email').text(data.error_email);
-              $('#error_password4').text(data.error_password4);
-              $('#error_password5').text(data.error_password5);
-              $('#error_password6').text(data.error_password6);
-              $('#error_modification').text(data.error_modification);
-            }
-          }
-      });
-    });
-  });
-</script>
+                      }else{
+                        $('#idtext').text(data.id);
+                        $('#error_nom').text(data.error_nom);
+                        $('#error_prenom').text(data.error_prenom);
+                        $('#error_email').text(data.error_email);
+                        $('#error_password4').text(data.error_password4);
+                        $('#error_password5').text(data.error_password5);
+                        $('#error_password6').text(data.error_password6);
+                        $('#error_modification').text(data.error_modification);
+                      }
+                    }
+                });
+              });
+            });
+          </script>
