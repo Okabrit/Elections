@@ -3,10 +3,8 @@
   require_once("bdd_config.php");
 
   $nom='';
-  $description='';
 
-  $error_nom='';
-  $error_description='';
+  $error_nom = '';
   $error_bdd = '';
 
   if(isset($_POST["nom-assoc3"])){
@@ -16,19 +14,20 @@
       $nom=$_POST["nom-assoc3"];
     }
 
-    if(empty($_POST["description"])){
-      $error_nom='Veuillez entrer la description de l\'association';
-    }else{
-      $description=$_POST["description"];
-    }
-
     if(checkAssociation($connection,$nom)){
       $error_bdd='Cette association n\'existe pas';
     }
 
-    if($error_bdd='' && $error_nom='' && $error_description=''){
-      deleteAssociation($connection, $nom, $description);
+    if($error_bdd == '' && $error_nom == ''){
+      deleteAssociation($connection, $nom);
+      $data = array('success' => true);
+    }else{
+      $data = array(
+        'error_nom' => $error_nom,
+        'error_bdd' => $error_bdd
+      );
     }
+    echo json_encode($data);
   }
 
   function checkAssociation($connection, $nom){
@@ -40,7 +39,7 @@
     return $row["count"]=="0";
   }
 
-  function deleteAssociation ($connection, $nom, $description){
+  function deleteAssociation ($connection, $nom){
     $query='DELETE FROM associations WHERE nom=:nom';
     $statement=$connection->prepare($query);
     $statement->bindValue(":nom", $nom, PDO::PARAM_STR);

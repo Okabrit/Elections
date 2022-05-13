@@ -70,12 +70,10 @@
           if (data.success) {
             $('#suppAssociation')[0].reset();
             $('#error_nom').text('');
-            $('#error_description').text('');
             $('#error_bdd').text('');
             window.location.href = "organisateur.html";
             }else{
                 $('#error_nom').text(data.error_nom);
-                $('#error_description').text(data.error_description);
                 $('#error_bdd').text(data.error_bdd);
             }
           }

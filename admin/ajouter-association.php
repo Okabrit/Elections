@@ -22,7 +22,7 @@
 
     <h1>Ajouter une association</h1>
     <div id="ajouter-assoc">
-      <form action="organisateur.html" method="post" id="AjoutForm">
+      <form action="organisateur.html" method="post" id="AjoutForm" enctype="multipart/form-data">
         <div>
 
           <div>
@@ -37,7 +37,7 @@
               <img src="" alt="">
             </div>
 
-            <input type="file" class="file-ajouter" name="file-ajouter" id='pic' value="Ajouter une image">
+            <input type="file" name="uploaded" value="Ajouter une image">
             <span id="error_pic" class ="warning"></span>
           </div>
 
