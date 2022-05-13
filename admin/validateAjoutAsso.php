@@ -48,8 +48,7 @@
 
           if ($error_bdd == '' && $error_nomAsso == '' && $error_discription == '' && $error_pic == '') {
 
-              $id = '1';
-              addAsso($connection, $id, $nomAsso, $pic, $discription);
+              addAsso($connection, $nomAsso, $pic, $discription);
 
               $data = array('success' => true);
 
@@ -76,10 +75,9 @@
            return $row["count"] == "0";
          }
 
-         function addAsso($connection, $id, $nom, $url, $discription) {
-           $query = "INSERT INTO associations (id, nom, url, description) VALUES (:id, :nom, :url, :description)";
+         function addAsso($connection, $nom, $url, $discription) {
+           $query = "INSERT INTO associations (nom, url, description) VALUES (:nom, :url, :description)";
            $statement = $connection->prepare($query);
-           $statement->bindValue(":id", $id, PDO::PARAM_STR);
            $statement->bindValue(":nom", $nom, PDO::PARAM_STR);
            $statement->bindValue(":url", $url, PDO::PARAM_STR);
            $statement->bindValue(":discription", $discription, PDO::PARAM_STR);
