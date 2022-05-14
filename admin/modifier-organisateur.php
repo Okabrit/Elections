@@ -114,7 +114,7 @@
                       $('#error_password5').text('');
                       $('#error_password6').text('');
                       $('#error_modification').text('');
-                      window.location.href = "ajouter-association.html";
+                      window.location.href = "organisateur.html";
 
                       }else{
                         $('#idtext').text(data.id);
