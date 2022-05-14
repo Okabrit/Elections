@@ -26,7 +26,7 @@
         <div>
 
                     <div>
-                      <span>Vous pouvez grader les infos que vous souhaitez garder en laissant leur place vide</span>
+                      <span>Vous pouvez garder les infos que vous souhaitez garder en laissant leur place vide</span>
                     </div>
 
                     <div>
