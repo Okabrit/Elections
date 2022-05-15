@@ -27,6 +27,11 @@
 
         }
 
+        if (empty($_POST["uploaded"])) {
+            $error_pic = 'Veuillez entrer l\'image';
+        }else{
+            $pic = $_POST["uploaded"];
+        }
 
         if (empty($_POST["description1"])) {
             $error_discription = 'Veuillez entrer une description';
@@ -42,10 +47,10 @@
             $error_bdd = 'Cette association existe déjà !';
           }
 
-        if ($error_bdd == '' && $error_nomAsso == '' && $error_discription == '' && $error_pic == '') {
+        if ($error_bdd == '' && $error_nomAsso == '' && $error_discription == '') {
 
               addAsso($connection, $nomAsso, $pic, $description);
-
+              $_SESSION['nom'] = $nomAsso;
               $data = array('success' => true);
 
           } else {
