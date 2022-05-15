@@ -34,6 +34,7 @@
         $description2=$row2["description"];
         $photo2=$row2["fileName"];
     ?>
+
     <div id="assoc1">
       <?php echo '<img src="'.$photo1.'">';
       echo '<div id="nom-assoc1">'.$nom1.'</div>'; ?>
@@ -42,7 +43,7 @@
 
     <!--<input type="submit" id="voter" name="voter" value="Voter">-->
 
-    <form action="classement.html" method="get">
+    <form action="classement.php" method="get">
       <input type="submit" id="classement" name="classement" value="Classement">
     </form>
     <form action="vote.php" method="post" id="VoteForm">

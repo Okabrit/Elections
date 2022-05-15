@@ -22,9 +22,10 @@
     <div id="modifier-assoc">
       <form action="organisateur.php" method="post" id="modifAssociation">
         <div>
+
           <div>
             <label for="nom-assoc2">Nom de l'association</label>
-            <span id="nomAsso" class ="warning"></span>
+            <input type="text" id="nom-assoc2" name="nom-assoc2">
             <span id="error_nom" class="warning"></span>
           </div>
 
@@ -68,7 +69,6 @@
             $('#error_modification').text('');
             window.location.href = "image.php";
             }else{
-                $('#nomAsso').text(data.nomAsso);
                 $('#error_nom').text(data.error_nom);
                 $('#error_description').text(data.error_description);
                 $('#error_modification').text(data.error_modification);

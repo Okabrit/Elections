@@ -10,7 +10,7 @@
     <header>
       <img src="images/logo_univ.png">
       <h1>Election d'association</h1>
-      <form action="vote.html" method="get">
+      <form action="vote.php" method="get">
         <input type="submit" class="retour" name="retour" value="Retour">
       </form>
     </header>
