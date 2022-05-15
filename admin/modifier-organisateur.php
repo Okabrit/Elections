@@ -15,14 +15,14 @@
     <header>
       <img src="../images/logo_univ.png">
       <h1>Election d'association</h1>
-      <form action="organisateur.html" method="get">
+      <form action="organisateur.php" method="get">
         <input type="submit" class="retour" name="retour" value="Retour">
       </form>
     </header>
 
     <h1>Modifier son compte</h1>
     <div id="modif">
-      <form action="organisateur.html" method="post" id="modificationForm">
+      <form action="organisateur.php" method="post" id="modificationForm">
         <div>
 
                     <div>
@@ -114,7 +114,7 @@
                       $('#error_password5').text('');
                       $('#error_password6').text('');
                       $('#error_modification').text('');
-                      window.location.href = "organisateur.html";
+                      window.location.href = "organisateur.php";
 
                       }else{
                         $('#idtext').text(data.id);

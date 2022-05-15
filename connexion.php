@@ -88,7 +88,7 @@
               $('#connectionForm')[0].reset();
               $('#error_connexion').text('');
               $('#error_code').text('');
-              window.location.href = "admin/organisateur.html";
+              window.location.href = "admin/organisateur.php";
 
               }
 

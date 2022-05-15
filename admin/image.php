@@ -17,14 +17,14 @@
     <header>
       <img src="../images/logo_univ.png">
       <h1>Election d'association</h1>
-      <form action="organisateur.html" method="get">
+      <form action="organisateur.php" method="get">
         <input type="submit" class="retour" name="retour" value="Retour">
       </form>
     </header>
 
     <h1>Ajouter une association</h1>
     <div id="ajouter-assoc">
-      <form action="organisateur.html" method="post" id="AjoutForm">
+      <form action="organisateur.php" method="post" id="AjoutForm">
         <div>
 
 

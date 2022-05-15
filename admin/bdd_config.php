@@ -13,6 +13,7 @@
 
   try {
     $connection = new PDO('mysql:host='.$dbhost.';dbname='.$dbname, $dbuser, $dbpass);
+    $con = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname );
   } catch(PDOException $e) {
     echo $e->getMessage();
   }

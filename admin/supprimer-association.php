@@ -13,14 +13,14 @@
     <header>
       <img src="../images/logo_univ.png">
       <h1>Election d'association</h1>
-      <form action="organisateur.html" method="get">
+      <form action="organisateur.php" method="get">
         <input type="submit" class="retour" name="retour" value="Retour">
       </form>
     </header>
 
     <h1>Supprimer une association</h1>
     <div id="supprimer-assoc">
-      <form action="organisateur.html" method="post" id="suppAssociation">
+      <form action="organisateur.php" method="post" id="suppAssociation">
         <div>
           <div>
             <label for="nom-assoc3">Nom de l'association</label>
@@ -71,7 +71,7 @@
             $('#suppAssociation')[0].reset();
             $('#error_nom').text('');
             $('#error_bdd').text('');
-            window.location.href = "organisateur.html";
+            window.location.href = "organisateur.php";
             }else{
                 $('#error_nom').text(data.error_nom);
                 $('#error_bdd').text(data.error_bdd);
