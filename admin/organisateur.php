@@ -64,7 +64,7 @@
     <form action="ajouter-association.php" method="get">
       <input type="submit" class="ajouter-association" name="ajouter-association" value="Ajouter une association">
       <input type="submit" class="supprimer-association" name="supprimer-association" value="supprimer une association" formaction="supprimer-association.php">
-
+      <input type="submit" class="modifier-association" name="modifier-association" value="modifier une association" formaction="modifier-association.php">
     </form>
 
   </body>

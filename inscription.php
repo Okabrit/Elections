@@ -23,7 +23,7 @@
 
     <h1>Inscription</h1>
     <div id="inscript">
-        <form action="vote.html" method="post" id="registerForm">
+        <form action="vote.php" method="post" id="registerForm">
         <div>
 
           <div>
@@ -119,7 +119,7 @@
             $('#error_recaptcha').text('');
             $('#error_bdd').text('');
             grecaptcha.reset();
-            window.location.href = "vote.html";
+            window.location.href = "vote.php";
 
             }else{
 

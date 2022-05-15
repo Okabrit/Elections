@@ -15,7 +15,7 @@
     <header>
       <img src="images/logo_univ.png">
       <h1>Election d'association</h1>
-      <form action="vote.html" method="get">
+      <form action="vote.php" method="get">
         <input type="submit" class="retour" name="retour" value="Retour">
       </form>
     </header>
@@ -23,7 +23,7 @@
     <h1>Modifier son compte</h1>
     <div id="modif">
 
-      <form action="vote.html" method="post" id="modificationForm">
+      <form action="vote.php" method="post" id="modificationForm">
         <div>
 
           <div>
@@ -119,7 +119,7 @@
             $('#error_password5').text('');
             $('#error_password6').text('');
             $('#error_modification').text('');
-            window.location.href = "vote.html";
+            window.location.href = "vote.php";
 
             }else{
               $('#idtext').text(data.id);

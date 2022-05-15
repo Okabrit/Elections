@@ -19,7 +19,7 @@
     </header>
     <h1>Connexion</h1>
     <div id="connect">
-      <form action="vote.html" method="post" id="connectionForm">
+      <form action="vote.php" method="post" id="connectionForm">
         <div>
 
           <div >
@@ -77,7 +77,7 @@
 
             $('#connectionForm')[0].reset();
             $('#error_connexion').text('');
-            window.location.href = "vote.html";
+            window.location.href = "vote.php";
 
             }else{
                 $('#error_connexion').text(data.error_connexion);
