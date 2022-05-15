@@ -24,15 +24,8 @@
         <div>
           <div>
             <label for="nom-assoc2">Nom de l'association</label>
-            <input type="text" id="nom-assoc2" name="nom-assoc2">
+            <span id="nomAsso" class ="warning"></span>
             <span id="error_nom" class="warning"></span>
-          </div>
-
-          <div id="modifier-image">
-            <div id="image2">
-              <img src="" alt="">
-            </div>
-            <input type="file" class="file-modifier" name="file-modifier" value="Modifier une image">
           </div>
 
           <div id="description2">
@@ -73,8 +66,9 @@
             $('#error_nom').text('');
             $('#error_description').text('');
             $('#error_modification').text('');
-            window.location.href = "organisateur.html";
+            window.location.href = "image.php";
             }else{
+                $('#nomAsso').text(data.nomAsso);
                 $('#error_nom').text(data.error_nom);
                 $('#error_description').text(data.error_description);
                 $('#error_modification').text(data.error_modification);
