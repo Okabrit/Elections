@@ -23,7 +23,7 @@
       <form action="organisateur.php" method="post" id="modifAssociation">
         <div>
 
-          <div>
+          <div id="nom-assoc2">
             <label for="nom-assoc2">Nom de l'association</label>
             <input type="text" id="nom-assoc2" name="nom-assoc2">
             <span id="error_nom" class="warning"></span>

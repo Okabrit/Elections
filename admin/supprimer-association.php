@@ -34,7 +34,7 @@
             </div>
           </div>
 
-          <div id="description2">
+          <div id="description3">
             <textarea name="description2" id="description" rows="15" cols="35"></textarea>
             <span id="error_description" class ="warning"></span>
           </div>

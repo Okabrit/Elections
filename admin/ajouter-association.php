@@ -27,7 +27,7 @@
       <form action="organisateur.php" method="post" id="AjoutForm">
         <div>
 
-          <div>
+          <div id="nom-assoc1">
             <label for="nom-assoc1">Nom de l'association</label>
             <input type="text" id="nom-assoc1" name="nom-assoc1">
             <span id="error_nomAsso" class ="warning"></span>

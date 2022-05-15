@@ -22,6 +22,10 @@ label{
   padding: 20px;
 }
 
+#nom-assoc1, #nom-assoc2{
+  margin-left: 50px;
+}
+
 #ajouter-image, #modifier-image, #supprimer-image{
   margin-top: 10px;
   margin-left: 70px;
@@ -46,14 +50,31 @@ input.file-ajouter, input.file-modifier{
   width: 120px;
 }
 
-input#ajouter, input#modifier, input#supprimer{
+input#supprimer{
   margin-top: 20px;
   margin-left: 190px;
   height: 30px;
   width: 120px;
 }
 
-#description1, #description2, #description3{
+input#ajouter, input#modifier{
+  margin-top: 20px;
+  margin-left: 320px;
+  height: 30px;
+  width: 120px;
+}
+
+#description3{
   margin-top: 20px;
   margin-left: 450px;
+}
+
+#description2{
+  margin-top: 20px;
+  margin-left: 250px;
+}
+
+#description1{
+  margin-top: 20px;
+  margin-left: 50px;
 }
